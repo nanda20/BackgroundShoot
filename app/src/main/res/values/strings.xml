@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">BackgroundShoot</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="Planets">
+
+        <item>Animals</item>
+        <item>Architecture/Buildings</item>
+        <item>Nature/Landscape</item>
+        <item>Sports</item>
+        <item>Architecture/Buildings</item>
+        <item>Food/Drink</item>
+        <item>Places/Monuments</item>
+        <item>Travel/Vacation</item>
+        <item>Background/Texture</item>
+    </string-array>
+</resources>
