@@ -33,20 +33,14 @@
         android:layout_height="200dp"
         android:id="@+id/imageDetail"/>
 
-    <Button
-        android:layout_below="@+id/imageDetail"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/btnShare"
-        android:text="Share"
-        />
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/btnSave"
         android:text="Save"
-        android:layout_below="@+id/btnShare"
+        android:layout_below="@+id/imageDetail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <Button

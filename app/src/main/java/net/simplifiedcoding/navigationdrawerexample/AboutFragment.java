@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  */
 
 
-public class About extends Fragment {
+public class AboutFragment extends Fragment {
 
     @Nullable
     @Override
@@ -27,6 +27,6 @@ public class About extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("About");
+        getActivity().setTitle("AboutFragment");
     }
 }

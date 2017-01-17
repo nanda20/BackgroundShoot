@@ -1,26 +1,16 @@
 package net.simplifiedcoding.navigationdrawerexample;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,11 +20,11 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class CategoryList extends AppCompatActivity {
+public class GridViewList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private ArrayList<DataPojo> arrayList=new ArrayList<>();
-    private AdapterHandler adapter;
+    private GridViewListAdapter adapter;
     private String URL="";
     private String category;
 //    String replace;
@@ -92,7 +82,7 @@ public class CategoryList extends AppCompatActivity {
                         DataPojo data= new DataPojo(Integer.valueOf(object.getString("likes")),Integer.valueOf(object.getString("favorites")),object.getString("previewURL"),object.getString("webformatURL"));
                         arrayList.add(data);
                     }
-                    adapter = new AdapterHandler(getApplicationContext(),arrayList);
+                    adapter = new GridViewListAdapter(getApplicationContext(),arrayList);
                     recyclerView.setAdapter(adapter);
 
                     Log.d("sum",String.valueOf(arrayList.size()));

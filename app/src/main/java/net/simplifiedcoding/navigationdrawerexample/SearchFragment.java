@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import android.widget.Toast;
  */
 
 
-public class Search extends Fragment {
+public class SearchFragment extends Fragment {
 
     private EditText category;
     private Button btnSearch;
@@ -40,7 +39,7 @@ public class Search extends Fragment {
                String val = category.getText().toString();
 //               Log.d("ISI"," = "+val);
 //               Log.d("ISI"," = "+category);
-               Intent intent= new Intent(getContext(), CategoryList.class);
+               Intent intent= new Intent(getContext(), GridViewList.class);
                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                intent.putExtra("page","2");
                intent.putExtra("category",val);
@@ -61,6 +60,6 @@ public class Search extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Search");
+        getActivity().setTitle("SearchFragment");
     }
 }

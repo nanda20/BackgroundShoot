@@ -16,11 +16,11 @@ import java.util.ArrayList;
 /**
  * Created by owner on 12/18/2016.
  */
-public class AdapterHandler extends RecyclerView.Adapter<AdapterHandler.ViewHolder> {
+public class GridViewListAdapter extends RecyclerView.Adapter<GridViewListAdapter.ViewHolder> {
     private Context context;
     ArrayList<DataPojo> item = new ArrayList<>();
 
-    public AdapterHandler(Context context, ArrayList<DataPojo> item) {
+    public GridViewListAdapter(Context context, ArrayList<DataPojo> item) {
         this.context = context;
         this.item = item;
         Log.d("sumData", String.valueOf(item.size()));

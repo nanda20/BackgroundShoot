@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -80,14 +80,15 @@ public class MainActivity extends AppCompatActivity
                 fragment = new CategoryFragment();
                 break;
             case R.id.nav_menu2:
-                fragment = new Search();
+                fragment = new SearchFragment();
                 break;
             case R.id.nav_menu3:
-                fragment = new Popular();
+                fragment = new AboutFragment();
+//                fragment = new Popular();
                 break;
-            case R.id.nav_menu4:
-                fragment = new About();
-                break;
+//            case R.id.nav_menu4:
+//                fragment = new AboutFragment();
+//                break;
         }
 
         //replacing the fragment

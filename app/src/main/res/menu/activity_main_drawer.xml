@@ -10,12 +10,12 @@
             android:id="@+id/nav_menu2"
             android:icon="@mipmap/ic_launcher"
             android:title="Search" />
+        <!--<item-->
+            <!--android:id="@+id/nav_menu3"-->
+            <!--android:icon="@mipmap/ic_launcher"-->
+            <!--android:title="Popular" />-->
         <item
             android:id="@+id/nav_menu3"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Popular" />
-        <item
-            android:id="@+id/nav_menu4"
             android:icon="@mipmap/ic_launcher"
             android:title="About" />
 
