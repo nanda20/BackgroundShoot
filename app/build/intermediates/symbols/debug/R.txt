@@ -753,9 +753,10 @@ int drawable ic_menu_slideshow 0x7f020087
 int drawable icon_back 0x7f020088
 int drawable load 0x7f020089
 int drawable loading 0x7f02008a
-int drawable navigation_empty_icon 0x7f02008b
-int drawable notification_template_icon_bg 0x7f02008d
-int drawable side_nav_bar 0x7f02008c
+int drawable logo 0x7f02008b
+int drawable navigation_empty_icon 0x7f02008c
+int drawable notification_template_icon_bg 0x7f02008e
+int drawable side_nav_bar 0x7f02008d
 int id action0 0x7f0d0098
 int id action_bar 0x7f0d0065
 int id action_bar_activity_content 0x7f0d0000

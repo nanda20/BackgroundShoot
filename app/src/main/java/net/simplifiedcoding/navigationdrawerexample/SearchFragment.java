@@ -21,24 +21,20 @@ public class SearchFragment extends Fragment {
     private EditText category;
     private Button btnSearch;
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_search, container, false);
         category = (EditText) view.findViewById(R.id.inputCategory);
         btnSearch= (Button) view.findViewById(R.id.btnCategory);
-//        btnSearch.setOnClickListener((View.OnClickListener) this);
 
-       btnSearch.setOnClickListener(new View.OnClickListener() {
+
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
 //               category = (EditText) v.findViewById(R.id.categori);
                String val = category.getText().toString();
-//               Log.d("ISI"," = "+val);
-//               Log.d("ISI"," = "+category);
                Intent intent= new Intent(getContext(), GridViewList.class);
                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                intent.putExtra("page","2");

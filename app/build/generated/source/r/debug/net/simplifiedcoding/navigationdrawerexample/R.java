@@ -2853,9 +2853,10 @@ containing a value of this type.
         public static final int icon_back=0x7f020088;
         public static final int load=0x7f020089;
         public static final int loading=0x7f02008a;
-        public static final int navigation_empty_icon=0x7f02008b;
-        public static final int notification_template_icon_bg=0x7f02008d;
-        public static final int side_nav_bar=0x7f02008c;
+        public static final int logo=0x7f02008b;
+        public static final int navigation_empty_icon=0x7f02008c;
+        public static final int notification_template_icon_bg=0x7f02008e;
+        public static final int side_nav_bar=0x7f02008d;
     }
     public static final class id {
         public static final int action0=0x7f0d0098;

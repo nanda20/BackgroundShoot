@@ -152,6 +152,10 @@
         "source": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\drawable\\design_ic_visibility.xml"
     },
     {
+        "merged": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
+        "source": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
         "merged": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_light.xml",
         "source": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
     },
@@ -162,6 +166,10 @@
     {
         "merged": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
         "source": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loading.PNG",
+        "source": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\src\\main\\res\\drawable\\loading.PNG"
     },
     {
         "merged": "E:\\master\\desktop\\android\\BackgroundShoot\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
