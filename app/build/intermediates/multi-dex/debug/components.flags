@@ -1,0 +1,44 @@
+-injars 'E:\master\desktop\android\BackgroundShoot\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'E:\master\desktop\android\BackgroundShoot\app\build\intermediates\multi-dex\debug\componentClasses.jar'
+
+-libraryjars 'E:\master\dll\android-sdk-windows\build-tools\24.0.2\lib\shrinkedAndroid.jar'
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **,com.android.tools.fd.**,android.support.multidex.MultiDexExtractor
+-dontwarn **
+-printconfiguration 'E:\master\desktop\android\BackgroundShoot\app\build\intermediates\multi-dex\debug\components.flags'
+
+
+-keep class net.simplifiedcoding.navigationdrawerexample.MainActivity {
+    <init>();
+}
+
+-keep class net.simplifiedcoding.navigationdrawerexample.GridViewList {
+    <init>();
+}
+
+-keep class net.simplifiedcoding.navigationdrawerexample.DetailImage {
+    <init>();
+}
+
+-keep class net.simplifiedcoding.navigationdrawerexample.SplashScreen {
+    <init>();
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.fd.** {
+    <fields>;
+    <methods>;
+}

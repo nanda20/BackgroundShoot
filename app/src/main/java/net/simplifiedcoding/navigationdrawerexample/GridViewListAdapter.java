@@ -23,7 +23,7 @@ public class GridViewListAdapter extends RecyclerView.Adapter<GridViewListAdapte
     public GridViewListAdapter(Context context, ArrayList<DataPojo> item) {
         this.context = context;
         this.item = item;
-        Log.d("sumData", String.valueOf(item.size()));
+
     }
 
     @Override
@@ -36,15 +36,18 @@ public class GridViewListAdapter extends RecyclerView.Adapter<GridViewListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        Picasso.with(context).load(item.get(position).getpreviewURL()).into(holder.imageItem);
+        Picasso.with(context)
+                .load(item.get(position).getpreviewURL())
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.loading)
+                .into(holder.imageItem);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(context,String.valueOf(item.get(position).getWebformatURL()),Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(context, DetailImage.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("image",item.get(position).getWebformatURL());
+                intent.putExtra("image",position);
                 context.startActivity(intent);
             }
         });

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/saveBtn"
+        android:icon="@android:drawable/arrow_up_float"
+        android:title="SAVE"
+        />
+    <item
+        android:id="@+id/setAsBtn"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="SET AS"
+        />
+
+
+</menu>

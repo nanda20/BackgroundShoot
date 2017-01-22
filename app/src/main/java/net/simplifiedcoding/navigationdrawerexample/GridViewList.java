@@ -23,12 +23,11 @@ import cz.msebera.android.httpclient.Header;
 public class GridViewList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
-    private ArrayList<DataPojo> arrayList=new ArrayList<>();
+    public static ArrayList<DataPojo> arrayList=new ArrayList<>();
     private GridViewListAdapter adapter;
     private String URL="";
     private String category;
-//    String replace;
-//    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +35,10 @@ public class GridViewList extends AppCompatActivity {
         String input=getIntent().getStringExtra("category");
         if(getIntent().getStringExtra("page").equals("1")){
             category=input.replace("/","+");
-
         }else{
             category =getIntent().getStringExtra("category");
-
         }
+        Log.d("Categori",category);
 
         String categoryTitle =input.replace("/"," ");
         setTitle(categoryTitle);
@@ -68,8 +66,8 @@ public class GridViewList extends AppCompatActivity {
     public void loadDatabase(){
 
         final AsyncHttpClient client= new AsyncHttpClient();
-
-        URL="https://pixabay.com/api/?key=3899745-31636397f9d3f0943d1dbdef5&q="+category+"&image_type=photo&pretty=true";
+        arrayList.clear();
+        URL="https://pixabay.com/api/?key=3899745-31636397f9d3f0943d1dbdef5&q="+category+"&image_type=photo&pretty=true&per_page=50";
         client.post(URL,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -84,8 +82,6 @@ public class GridViewList extends AppCompatActivity {
                     }
                     adapter = new GridViewListAdapter(getApplicationContext(),arrayList);
                     recyclerView.setAdapter(adapter);
-
-                    Log.d("sum",String.valueOf(arrayList.size()));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -93,6 +89,8 @@ public class GridViewList extends AppCompatActivity {
         });
 
     }
+
+
 
 
 }

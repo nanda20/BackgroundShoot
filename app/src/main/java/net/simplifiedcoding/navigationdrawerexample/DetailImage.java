@@ -1,15 +1,21 @@
 package net.simplifiedcoding.navigationdrawerexample;
 
 import android.app.WallpaperManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.design.internal.NavigationMenuView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +29,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -30,10 +38,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class DetailImage extends AppCompatActivity {
     public String img;
+    ViewPager viewPager;
+    ArrayList<DataPojo> data;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -44,17 +56,22 @@ public class DetailImage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_image);
-        final ImageView imageView = (ImageView) findViewById(R.id.imageDetail);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+
+//        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("");
 
         Intent intent = getIntent();
-        img = intent.getStringExtra("image");
-        Picasso.with(getApplicationContext()).load(img).into(imageView);
+        viewPager=(ViewPager)findViewById(R.id.imagePager);
+         data= GridViewList.arrayList;
 
+        final DetailImageSwipeAdapter adapter= new DetailImageSwipeAdapter(DetailImage.this,data);
+        viewPager.setAdapter(adapter);
+        final int position = intent.getIntExtra("image",0);
+        viewPager.setCurrentItem(position);
 
         Button btnSave = (Button) findViewById(R.id.btnSave);
         Button btnSetAs = (Button) findViewById(R.id.btnSetAs);
@@ -65,7 +82,7 @@ public class DetailImage extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     WallpaperManager myWallpaper = WallpaperManager.getInstance(DetailImage.this);
-                    InputStream ins = new URL(img).openStream();
+                    InputStream ins = new URL(data.get(viewPager.getCurrentItem()).getWebformatURL()).openStream();
                     myWallpaper.setStream(ins);
                     Toast.makeText(getBaseContext(), "Wallpaper Has Been Changed", Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
@@ -93,11 +110,25 @@ public class DetailImage extends AppCompatActivity {
                 String file_name = file.getAbsolutePath() + "/" + name;
                 File new_file = new File(file_name);
                 try {
+
                     fileOutputStream = new FileOutputStream(new_file);
-                    Bitmap bitmap = viewToBitmap(imageView, imageView.getWidth(), imageView.getHeight());
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+
+                    URL url = new URL(data.get(viewPager.getCurrentItem()).getWebformatURL());
+                    InputStream in = new BufferedInputStream(url.openStream());
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+                    byte[] buf = new byte[1024];
+                    int n = 0;
+                    while (-1!=(n=in.read(buf)))
+                    {
+                        out.write(buf, 0, n);
+                    }
+                    out.close();
+                    in.close();
+                    byte[] response = out.toByteArray();
+
                     Toast.makeText(getApplicationContext(), "Save Image success", Toast.LENGTH_SHORT).show();
-                    fileOutputStream.flush();
+                    fileOutputStream.write(response);
+//                    fileOutputStream.flush();
                     fileOutputStream.close();
 
                 } catch (FileNotFoundException e) {
@@ -111,6 +142,7 @@ public class DetailImage extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+
     public static Bitmap viewToBitmap(View view, int width, int height){
         Bitmap bitmap = Bitmap.createBitmap(width,height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);

@@ -63,7 +63,7 @@ public class CategoryFragment extends Fragment {
             RecyclerView recyclerView = (RecyclerView) view;
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            String[] dataArray= getActivity().getResources().getStringArray(R.array.Planets);
+            String[] dataArray= getActivity().getResources().getStringArray(R.array.Categori);
             recyclerView.setAdapter(new CategoriFragmentAdapter(getActivity(),dataArray));
         }
         return view;

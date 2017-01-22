@@ -1,0 +1,14 @@
+-keep class net.simplifiedcoding.navigationdrawerexample.MainActivity { <init>(); }
+-keep class net.simplifiedcoding.navigationdrawerexample.GridViewList { <init>(); }
+-keep class net.simplifiedcoding.navigationdrawerexample.DetailImage { <init>(); }
+-keep class net.simplifiedcoding.navigationdrawerexample.SplashScreen { <init>(); }
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+-keep public class * extends java.lang.annotation.Annotation {
+    *;
+}
+-keep class com.android.tools.fd.** {
+    *;
+}
+-dontnote com.android.tools.fd.**,android.support.multidex.MultiDexExtractor

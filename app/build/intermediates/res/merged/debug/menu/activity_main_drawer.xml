@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu1"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Category" />
+        <item
+            android:id="@+id/nav_menu2"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Search" />
+        <!--<item-->
+            <!--android:id="@+id/nav_menu3"-->
+            <!--android:icon="@mipmap/ic_launcher"-->
+            <!--android:title="Popular" />-->
+        <item
+            android:id="@+id/nav_menu3"
+            android:icon="@mipmap/ic_launcher"
+            android:title="About" />
+
+    </group>
+
+
+</menu>
